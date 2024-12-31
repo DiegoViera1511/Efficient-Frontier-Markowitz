@@ -18,7 +18,7 @@ Markowitz también consideró que había una combinación infinita de asignacion
 
 Estas asignaciones eficientes se desarrollaban a lo largo de una curva la cual el económico nombró la **Frontera Eficiente**, se consideró que las asignaciones que se encontraban a lo largo de esta frontera tenían la mejor recompensa para un nivel de riesgo determinado, entonces, ¿ como calculamos esta frontera eficiente usando nuestra **matriz de covarianza** ?
 
-Sea $w = [ w_1 , w_2 , ... , w_n ]$ el vector de pesos ( cuanto de nuestro capital vamos a invertir ) para cada uno de nuestros activos.
+Sea $w =  \{w_1 , w_2 , \dots , w_n \}$ el vector de pesos ( cuanto de nuestro capital vamos a invertir ) para cada uno de nuestros activos.
 
 Si multiplicamos $w$ por nuestra matriz de covarianza $\Sigma$ por la transposición de $w$ obtenemos un término de volatilidad al cuadrado ( $\sigma^2$ ).
 
@@ -26,7 +26,7 @@ $$ w \cdot \Sigma \cdot w^T = \sigma^2 $$
  
 Lo que queremos saber es cuándo se minimiza este valor para un nivel dado de retorno del portafolio, llamaremos a nuestro nivel de retorno $R$, entonces ¿ como calculamos $R$ ?
 
-Sea $ \mu= [r_1 , r_1 , ... , r_n ]$ el vector de retornos esperados donde $r_i$ es el retorno esperado del activo i.
+Sea $\mu= \{r_1 , r_1 , \dots , r_n\}$ el vector de retornos esperados donde $r_i$ es el retorno esperado del activo i.
 
 $$\mu \cdot w^T = R$$
 
@@ -68,14 +68,10 @@ Nuestro objetivo es equilibrar el riesgo y la recompensa de la inversión de la 
 ### Función Objetivo
 
 Minimizar riesgo:
-$$
-w \cdot \Sigma \cdot w^T = \sigma^2
-$$
+$$w\cdot \Sigma \cdot w^T = \sigma^2$$
 
 Maximizar retorno:
-$$
-\mu \cdot w^T
-$$
+$$\mu \cdot w^T$$
 
 
 
