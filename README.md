@@ -42,22 +42,26 @@ $$w = \lambda \cdot \Sigma ^{-1} \cdot \mu $$
 
 Donde $\lambda$ es el nivel de riesgo que quiere aceptar ( $\lambda >= 0$)
 
-Nuestro objetivo es equilibrar el riesgo y la recompensa de la inversión de la forma más eficiente posible 
+Nuestro objetivo es equilibrar el riesgo y la recompensa de la inversión de la forma más eficiente posible.
+
+
+
 
 # Modelado del problema 
 
-### Variables
+## Variables
 
 - $w$ vector de proporciones invertidads en cada activo donde $w_i$ es el peso invertido en el activo $i$
+
+## Datos
 
 - $\Sigma$ matriz de covariancia entre los retornos esperados de los activos
 
 - $\mu$ vector de retornos esperados para cada activo
 
 - $\sigma ^2$ varianza del portfolio
-
   
-### Restricciones
+## Restricciones
 
 - La suma de los pesos debe ser igual a 1 (invertir todo el capital de inversión):
     $$\sum_{i=1}^{n} w_i = 1$$
@@ -65,13 +69,42 @@ Nuestro objetivo es equilibrar el riesgo y la recompensa de la inversión de la 
 - Los pesos son positivos, asumimos que no vendes activos: 
   $$\forall i \; w_i >= 0$$
 
-### Función Objetivo
+## Función Objeitivo
+
+### Función Multiobjetivo
 
 Minimizar riesgo:
 $$w\cdot \Sigma \cdot w^T = \sigma^2$$
 
 Maximizar retorno:
 $$\mu \cdot w^T$$
+
+### Podemos transformar este problema a una sola función objetivo :
+
+$$Min(\lambda * \sigma^2 - (1 - \lambda) * R)$$
+
+- $R$ retorno del portafolio
+
+- $\sigma^2$ riesgo del portafolio
+
+- $\lambda$ es que tanto riesgo queremos asumir ( $\lambda \in$ \[0, 1\] )
+
+Veamos que si lambda es 1 pasamos a minimizar el riesgo del portafolio y si lambda es 0 passamos a maximizar el retorno portafolio.
+
+## Análisis del carácter de los modelos
+
+- **Linealidad**: El modelo de Markowitz **no es lineal**, ya que la función de riesgo es cuadrática (depende de los productos de los pesos de los activos).
+  
+- **Convexidad**: El problema es **convexo** porque la función de riesgo es cuadrática y tiene una matriz de covarianza positiva semidefinida. Esto asegura que el problema tiene una solución global y no infinitos óptimos locales.
+
+## Selección del algoritmo
+
+El modelo de Markowitz se puede resolver mediante técnicas de **optimización convexa**. 
+
+- **Método de Programación Cuadrática (QP)**: Dado que el problema es cuadrático y convexo, puedes usar programación cuadrática para encontrar la solución óptima.
+
+  **Razón para elegirlo**: Es el método más adecuado para problemas convexos con funciones cuadráticas y restricciones lineales. El algoritmo puede encontrar una única solución global sin caer en óptimos locales.
+
 
 
 
