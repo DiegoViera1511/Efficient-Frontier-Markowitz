@@ -89,7 +89,7 @@ $$Min(\lambda * \sigma^2 - (1 - \lambda) * R)$$
 
 - $\lambda$ es que tanto riesgo queremos asumir ( $\lambda \in$ \[0, 1\] )
 
-Veamos que si lambda es 1 pasamos a minimizar el riesgo del portafolio y si lambda es 0 passamos a maximizar el retorno portafolio.
+Veamos que si lambda es 1 pasamos a minimizar el riesgo del portafolio y si lambda es 0 passamos a maximizar el retorno del portafolio.
 
 ## Análisis del carácter de los modelos
 
